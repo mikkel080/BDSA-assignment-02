@@ -3,48 +3,40 @@ namespace Assignment2.Tests;
 public class DelegatesTests
 {
     [Fact]
-    public void Test1()
+    public void reverse_given_string()
     {
         //Arrange
-        Action<string> reversePrint = (s) => {
-            char[] charArray = s.ToCharArray();
-            Array.Reverse(charArray);
-            Console.WriteLine(new string(charArray));};
+        using var writer = new StringWriter();
+        Console.SetOut(writer);
+        var toTest = "abcdefghijklmnopqrstuvxyz";
 
         //Act
-        
+        AnonymousFunctions.printReverse(toTest);
 
         //Assert
-        
-        
+        var output = writer.GetStringBuilder().ToString().TrimEnd();
+        output.Should().Be("zyxvutsrqponmlkjihgfedcba");
+    }
+
+    [Fact]
+    public void product_given_7_4_returns_28()
+    {
+        var output = AnonymousFunctions.product(7,4); 
+
+        output.Should().Be(28);
+    }
+
+    [Fact]
+    public void isEqual_given_0042_and_42_returns_true()
+    {
+        AnonymousFunctions.isEqual(" 0042", 42).Should().BeTrue();
 
     }
 
     [Fact]
-    public void Test2()
+    public void isEqual_returns_false()
     {
-        //Arrange
-        Func<decimal, decimal, decimal> product = (factor1, factor2) => factor1*factor2;
-
-        //Act
-        decimal result = product(5, 5);
-
-        //Assert
-        Assert.Equal(25, result);
-
-    }
-
-    [Fact]
-    public void Test3()
-    {
-        //Arrange
-        Func<string, int, bool> numEqual = (s, i) => int.TryParse(s, out i);
-
-        //Act
-        bool result = numEqual("5", 5);
-
-        //Assert
-        Assert.True(result);
+        AnonymousFunctions.isEqual(" 0041", 42).Should().BeFalse();
 
     }
 }
