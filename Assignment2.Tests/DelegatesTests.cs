@@ -2,10 +2,6 @@ namespace Assignment2.Tests;
 
 public class DelegatesTests
 {
-    void testDelegate(Delegate d)
-    {
-    }
-
     [Fact]
     public void reverse_given_string()
     {
