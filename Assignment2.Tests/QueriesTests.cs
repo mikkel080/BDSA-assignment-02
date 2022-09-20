@@ -93,18 +93,18 @@ public class QueriesTests
         Assert.Equal(expected, result);
     }
 
-    // [Fact]
-    // public void Test2()
-    // {
-    //     //Arrange
+    [Fact]
+    public void Test2()
+    {
+        //Arrange
         
-    //     //Act
-    //     var result = Queries.ExtensionGroupByNameInReverseThenCreator();
+        //Act
+        var result = Queries.ExtensionGroupByNameInReverseThenCreator();
 
-    //     string[] expected = {"Voldemort", "Sauron", "Radagast", "Harry Potter", "Gandalf", "Dumbledore", "Darth Vader", "Darth Maul",};
-    //     //Assert
-    //     Assert.Equal(expected, result);
-    // }
+        string[] expected = {"Sauron", "Radagast", "Gandalf", "Voldemort", "Harry Potter", "Dumbledore", "Darth Vader", "Darth Maul"};
+        //Assert
+        Assert.Equal(expected, result);
+    }
 
     
 }

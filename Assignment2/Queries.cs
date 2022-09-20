@@ -73,9 +73,9 @@ public class Queries
         return names;
     }
 
-    // public static IEnumerable<string> ExtensionGroupByNameInReverseThenCreator(){
-    //     var wizards = WizardCollection.Create();
-    //     var names = wizards.OrderByDescending(g => g.Creator).ThenBy(g => g.Name).GroupBy(g => g.Creator).; 
-    //     return names;
-    // }
+    public static IEnumerable<string> ExtensionGroupByNameInReverseThenCreator(){
+        var wizards = WizardCollection.Create();
+        var names = wizards.OrderByDescending(g => g.Creator).ThenByDescending(g => g.Name).GroupBy(g => g.Creator).Flatten().Select(w => w.Name).Distinct(); 
+        return names;
+    }
 }
